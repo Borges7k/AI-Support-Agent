@@ -2,7 +2,7 @@
 
 Agente inteligente de atendimento ao cliente desenvolvido com n8n e inteligência artificial.
 
-![Workflow do agente](https://github.com/Borges7k/AI-Support-Agent/raw/main/workflow-agent.png)
+![Workflow do agente](./workflow-agent.png)
 
 ### 🛠️ Tecnologias
 - n8n

@@ -2,6 +2,8 @@
 
 Agente inteligente de atendimento ao cliente desenvolvido com n8n e inteligência artificial.
 
+![Workflow do agente](workflow-agent.png)
+
 ### 🛠️ Tecnologias
 - n8n
 - Ollama

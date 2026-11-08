@@ -2,7 +2,7 @@
 
 Agente inteligente de atendimento ao cliente desenvolvido com n8n e inteligência artificial.
 
-![Workflow do agente](./workflow-Agent.png)
+![Workflow do agente](./Workflow-Agent.png)
 
 ### 🛠️ Tecnologias
 - n8n

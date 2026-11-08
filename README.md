@@ -1,4 +1,4 @@
-# 🤖 AI Customer Support Agent
+# 🤖 AI Support Agent
 
 Agente inteligente de atendimento ao cliente desenvolvido com n8n e inteligência artificial.
 

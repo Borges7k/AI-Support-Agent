@@ -4,6 +4,20 @@ Agente inteligente de atendimento ao cliente desenvolvido com n8n e inteligênci
 
 ![Workflow do agente](./Workflow-Agent.png)
 
+### 💬 Demonstração
+
+**1. Primeiro contato**
+
+![Primeiro contato](imagens/01-primeiro-contato.png)
+
+**2. Consulta de pedido**
+
+![Consulta de pedido](imagens/02-consulta-pedido.png)
+
+**3. Problema com entrega**
+
+![Problema com entrega](imagens/03-problema-entrega.png)
+
 ### 🛠️ Tecnologias
 - n8n
 - Ollama

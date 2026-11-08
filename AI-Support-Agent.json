@@ -1,0 +1,117 @@
+{
+  "name": "AI Support Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0047e542-a94b-4578-8c54-df1fcfd79285",
+      "name": "When chat message received",
+      "webhookId": "1a75e01e-1aa7-4667-a391-d9eacd006aec"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Você é um assistente virtual de atendimento ao cliente.\n\nSuas responsabilidades:\n- Cumprimentar os usuários cordialmente.\n- Responder dúvidas de maneira clara e objetiva.\n- Utilizar linguagem profissional e amigável.\n- Se não souber uma resposta, informar honestamente.\n- Nunca inventar informações.\n- Fazer perguntas quando precisar de mais detalhes.\n\nSeu objetivo é oferecer um atendimento rápido, educado e eficiente.\n\nResponda sempre em português brasileiro.\n\nRegras adicionais:\n- Utilize português brasileiro natural, com boa gramática.\n- Evite respostas repetitivas ou expressões artificiais.\n- Não invente nomes de empresas, políticas, prazos ou procedimentos.\n- Quando não tiver informações suficientes, faça perguntas ao cliente.\n- Dê orientações práticas e realistas.\n- Não afirme que realizou ações que não pode executar.\n- Seja educado, objetivo e evite respostas excessivamente longas.\n- Nunca diga que fará consultas, verificações ou ações externas se não possuir ferramentas ou integrações para executá-las.\n- Explique claramente suas limitações.\n- Se precisar consultar um pedido, informe que o cliente deverá utilizar os canais oficiais da loja enquanto o sistema não estiver integrado."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "8222e633-6f79-466d-90a7-af7c54a09484",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "qwen2.5:3b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        96,
+        208
+      ],
+      "id": "c3791e7f-fd00-4fde-adf0-db907a096d1c",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "cIkmt74sTdAIOQ1C",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        240,
+        208
+      ],
+      "id": "dc58cfcf-a16a-4594-b7c2-9e0d8fc6d8f8",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "b5788a31-1773-4479-a044-e92319364544",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98666b3f1b2285033398d8d6d9c34be78169495f3dca2a334ed4b84a7b91c833"
+  },
+  "nodeGroups": [],
+  "id": "N2mALRrAWUpjnWl5",
+  "tags": []
+}
